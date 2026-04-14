@@ -228,7 +228,7 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:padding="16dp"
-        android:background="@drawable/ripple_list_item_bg_segmented_middle">
+        android:background="@drawable/ripple_list_item_bg_segmented_last">
 
         <TextView
           style="@style/Widget.Tack.TextView.TitleMedium"
@@ -255,7 +255,8 @@
         android:paddingEnd="16dp"
         android:paddingTop="16dp"
         android:paddingBottom="12dp"
-        android:background="@drawable/ripple_list_item_bg_segmented_last">
+        android:background="@drawable/ripple_list_item_bg_segmented_last"
+        android:visibility="gone">
 
         <TextView
           style="@style/Widget.Tack.TextView.TitleMedium"
