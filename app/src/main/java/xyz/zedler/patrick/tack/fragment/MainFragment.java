@@ -189,10 +189,7 @@ public class MainFragment extends BaseFragment implements OnClickListener, Metro
       );
     }
 
-    binding.buttonMainSupport.setOnClickListener(v -> {
-      performHapticClick();
-      activity.showUnlockDialog();
-    });
+    binding.buttonMainSupport.setVisibility(View.GONE);
     binding.buttonMainMenu.setOnClickListener(v -> {
       performHapticClick();
       ViewUtil.showMenu(v, R.menu.menu_main, item -> {
@@ -213,15 +210,7 @@ public class MainFragment extends BaseFragment implements OnClickListener, Metro
         return true;
       });
     });
-    ViewUtil.setTooltipText(binding.buttonMainSupport, R.string.action_support);
     ViewUtil.setTooltipText(binding.buttonMainMenu, R.string.action_more);
-
-    boolean checkUnlockKey = activity.getSharedPrefs().getBoolean(
-        PREF.CHECK_UNLOCK_KEY, true
-    );
-    boolean isSupportVisible = checkUnlockKey &&
-        UnlockUtil.isPlayStoreInstalled(activity) && !UnlockUtil.isKeyInstalled(activity);
-    binding.buttonMainSupport.setVisibility(isSupportVisible ? View.VISIBLE : View.GONE);
 
     reduceAnimations = getSharedPrefs().getBoolean(PREF.REDUCE_ANIM, DEF.REDUCE_ANIM);
     activeBeat = getSharedPrefs().getBoolean(PREF.ACTIVE_BEAT, DEF.ACTIVE_BEAT);
