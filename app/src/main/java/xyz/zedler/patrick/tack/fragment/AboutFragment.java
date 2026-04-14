@@ -130,7 +130,6 @@ public class AboutFragment extends BaseFragment implements OnClickListener {
 
     ViewUtil.setOnClickListeners(
         this,
-        binding.linearAboutDeveloper,
         binding.linearAboutChangelog,
         binding.linearAboutVending,
         binding.linearAboutKey,
@@ -172,9 +171,7 @@ public class AboutFragment extends BaseFragment implements OnClickListener {
       performHapticClick();
     }
 
-    if (id == R.id.linear_about_developer) {
-      startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.app_website))));
-    } else if (id == R.id.linear_about_changelog) {
+    if (id == R.id.linear_about_changelog) {
       ViewUtil.startIcon(binding.imageAboutChangelog);
       activity.showChangelogDialog();
     } else if (id == R.id.linear_about_vending) {
