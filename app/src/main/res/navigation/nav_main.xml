@@ -23,7 +23,21 @@
   xmlns:app="http://schemas.android.com/apk/res-auto"
   xmlns:tools="http://schemas.android.com/tools"
   android:id="@+id/nav_main"
-  app:startDestination="@id/mainFragment">
+  app:startDestination="@id/activationFragment">
+
+  <fragment
+    android:id="@+id/activationFragment"
+    android:name="xyz.zedler.patrick.tack.fragment.ActivationFragment"
+    android:label="fragment_activation"
+    tools:layout="@layout/fragment_activation">
+
+    <action
+      android:id="@+id/action_activation_to_main"
+      app:destination="@id/mainFragment"
+      app:popUpTo="@id/activationFragment"
+      app:popUpToInclusive="true" />
+
+  </fragment>
 
   <fragment
     android:id="@+id/mainFragment"

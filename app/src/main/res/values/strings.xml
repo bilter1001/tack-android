@@ -32,6 +32,22 @@
   <string name="app_translate" translatable="false">https://app.transifex.com/patzly/tack-android/</string>
   <string name="app_privacy" translatable="false">bilter1001@163.com/</string>
 
+  <!-- ACTIVATION -->
+
+  <string name="activation_title" translatable="false">激活应用</string>
+  <string name="activation_hint" translatable="false">请输入激活码</string>
+  <string name="activation_button" translatable="false">激活</string>
+  <string name="activation_success" translatable="false">激活成功</string>
+  <string name="activation_failed" translatable="false">激活码无效或已被使用</string>
+  <string name="activation_format_hint" translatable="false">格式：TACK-XXXX-XXXX-XXXX</string>
+  <string name="generator_title" translatable="false">批量生成激活码</string>
+  <string name="generator_count_hint" translatable="false">生成数量</string>
+  <string name="generator_button" translatable="false">生成</string>
+  <string name="generator_copied" translatable="false">已复制到剪贴板</string>
+  <string name="generator_password_title" translatable="false">输入管理密码</string>
+  <string name="generator_password_hint" translatable="false">密码</string>
+  <string name="generator_password_wrong" translatable="false">密码错误</string>
+
   <!-- TITLES -->
 
   <string name="title_feedback">Feedback</string>

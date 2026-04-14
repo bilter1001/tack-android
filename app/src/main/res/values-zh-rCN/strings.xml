@@ -399,14 +399,19 @@
   <string name="help_tempo_change">如何才能变更拍子？</string>
   <string name="help_tempo_change_answer">为修改节奏，你可以拖动和旋转位于软件主页正中心的节拍选择器或点击圆圈左右两边的按钮。\n通过点击节奏选择器，你可以打开一个对话框以使用轻敲节奏或使用键盘输入来变更节奏。</string>
   <string name="help_time_signature">如何指定拍号？</string>
+  <string name="help_time_signature_answer">查看你的拍号的第一个数字，然后在节拍器中相应地设置拍数。即 4/4 拍设置 4 拍，2/2 拍设置 2 拍，以此类推。6/8 拍比较特殊，这里使用 2 拍并可选 3 个细分，因为只有第 1 个和第 4 个八分音符是强拍。\n此外，你可以通过点击拍子来改变其强弱。在选项中，你还可以选择摇摆百分比，它会自动为你设置细分。</string>
   <string name="help_swing">如何停用摇摆？</string>
   <string name="help_swing_answer">如果你在选项中启用了摇摆，Tack 只是为你自动设置细分区域。要禁用摆动功能，只需根据您的喜好手动设置细分音符即可。</string>
   <string name="help_song_library">歌曲库如何运作？</string>
+  <string name="help_song_library_answer">歌曲库是一组可以保存和应用的节拍器配置。要保存当前配置，只需打开歌曲库并创建新歌曲。当前配置将被添加到段落列表中，你可以进一步调整。为歌曲命名后，别忘了点击右上角的保存图标来保存结果。</string>
   <string name="help_song_picker">歌曲选择器如何运作？</string>
   <string name="help_song_picker_answer">你歌曲库中的所有歌曲都会显示在主页的歌曲选择器中，但是你可以根据需要开启全屏清单。展示顺序取决于你在清单中的选择。要应用某首歌曲，只需要点击即可。\n如果你想要切换回选择歌曲前的配置，请点击歌曲名称旁的 × 号。</string>
   <string name="help_song_part">为什么歌曲没有切换到下一部分？</string>
+  <string name="help_song_part_answer">要让歌曲自动切换到下一段落，每个段落都需要设置时长。如果你没有设置时长，该段落将被视为无限循环。\n要设置时长，只需点击当前歌曲打开歌曲详情，然后点击段落的编辑图标来设置时长。别忘了保存更改！</string>
   <string name="help_notification_displays">为什么在我在前台离开应用时会显示节拍器服务通知？</string>
+  <string name="help_notification_displays_answer">如果你没有在设置中启用"常驻通知"，该通知是节拍器服务在应用处于后台时保持运行所必需的。\n该服务管理播放并跟踪实时数据（如计时器或已用时间），以将播放与应用界面分离。\n你可以点击"停止"将服务移至后台，但这不再保证它不会被系统终止，可能导致计时器和已用时间重置，直到服务再次回到前台。\n你也可以在设置中启用常驻通知，以便始终在通知栏中快速启停。</string>
   <string name="help_notification_disappears">为什么当我关闭应用时节拍器服务通知会消失？</string>
+  <string name="help_notification_disappears_answer">当你从最近任务中关闭应用时，节拍器服务会停止，通知也会消失。这是为了节省电量和资源的预期行为。\n如果你希望通知始终保留以便快速启停，可以在设置中启用"常驻通知"，并且不要从最近任务中清除应用。</string>
   <string name="help_translation">如何获取适合我的语言的Tack？</string>
   <string name="help_translation_answer">Tack 的翻译由 Transifex 管理，像你一样的使用者也可以在这里翻译！请访问 GitHub 上的 Tack 以获取更多资讯，或直接进入翻译流程：</string>
 

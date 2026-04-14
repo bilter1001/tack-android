@@ -19,6 +19,9 @@
 
 package xyz.zedler.patrick.tack.fragment;
 
+import android.content.ClipData;
+import android.content.ClipboardManager;
+import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -26,8 +29,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.widget.EditText;
+import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+import com.google.android.material.textfield.TextInputEditText;
+import com.google.android.material.textfield.TextInputLayout;
+import java.util.List;
 import xyz.zedler.patrick.tack.BuildConfig;
 import xyz.zedler.patrick.tack.Constants.PREF;
 import xyz.zedler.patrick.tack.R;
@@ -35,6 +45,7 @@ import xyz.zedler.patrick.tack.activity.MainActivity;
 import xyz.zedler.patrick.tack.behavior.ScrollBehavior;
 import xyz.zedler.patrick.tack.behavior.SystemBarBehavior;
 import xyz.zedler.patrick.tack.databinding.FragmentAboutBinding;
+import xyz.zedler.patrick.tack.util.ActivationUtil;
 import xyz.zedler.patrick.tack.util.ResUtil;
 import xyz.zedler.patrick.tack.util.UnlockUtil;
 import xyz.zedler.patrick.tack.util.ViewUtil;
@@ -46,6 +57,7 @@ public class AboutFragment extends BaseFragment implements OnClickListener {
   private MainActivity activity;
   private TextDialogUtil textDialogUtilMdc, textDialogUtilMds, textDialogUtilGoogleSansFlex;
   private int longClickCount = 0;
+  private int versionClickCount = 0;
 
   @Override
   public View onCreateView(
@@ -101,6 +113,13 @@ public class AboutFragment extends BaseFragment implements OnClickListener {
     ViewUtil.setTooltipText(binding.buttonAboutMenu, R.string.action_more);
 
     binding.textAboutVersion.setText(BuildConfig.VERSION_NAME);
+    binding.textAboutVersion.setOnClickListener(v -> {
+      versionClickCount++;
+      if (versionClickCount >= 7) {
+        versionClickCount = 0;
+        showPasswordDialog();
+      }
+    });
 
     updateUnlockItem();
 
@@ -202,5 +221,88 @@ public class AboutFragment extends BaseFragment implements OnClickListener {
 
   private void updateUnlockItem() {
     binding.linearAboutKey.setVisibility(View.GONE);
+  }
+
+  private void showPasswordDialog() {
+    TextInputLayout inputLayout = new TextInputLayout(
+        activity, null, com.google.android.material.R.attr.textInputOutlinedStyle
+    );
+    inputLayout.setHint(getString(R.string.generator_password_hint));
+    int padding = (int) (24 * getResources().getDisplayMetrics().density);
+    inputLayout.setPadding(padding, padding / 2, padding, 0);
+    TextInputEditText editText = new TextInputEditText(inputLayout.getContext());
+    editText.setInputType(android.text.InputType.TYPE_CLASS_NUMBER
+        | android.text.InputType.TYPE_NUMBER_VARIATION_PASSWORD);
+    editText.setMaxLines(1);
+    inputLayout.addView(editText);
+
+    new MaterialAlertDialogBuilder(activity)
+        .setTitle(R.string.generator_password_title)
+        .setView(inputLayout)
+        .setPositiveButton(android.R.string.ok, (dialog, which) -> {
+          String password = editText.getText() != null
+              ? editText.getText().toString() : "";
+          if (password.equals(ActivationUtil.MASTER_PASSWORD)) {
+            showGeneratorDialog();
+          } else {
+            Toast.makeText(activity, R.string.generator_password_wrong, Toast.LENGTH_SHORT).show();
+          }
+        })
+        .setNegativeButton(android.R.string.cancel, null)
+        .show();
+  }
+
+  private void showGeneratorDialog() {
+    TextInputLayout inputLayout = new TextInputLayout(
+        activity, null, com.google.android.material.R.attr.textInputOutlinedStyle
+    );
+    inputLayout.setHint(getString(R.string.generator_count_hint));
+    int padding = (int) (24 * getResources().getDisplayMetrics().density);
+    inputLayout.setPadding(padding, padding / 2, padding, 0);
+    TextInputEditText editText = new TextInputEditText(inputLayout.getContext());
+    editText.setInputType(android.text.InputType.TYPE_CLASS_NUMBER);
+    editText.setText("10");
+    editText.setMaxLines(1);
+    inputLayout.addView(editText);
+
+    new MaterialAlertDialogBuilder(activity)
+        .setTitle(R.string.generator_title)
+        .setView(inputLayout)
+        .setPositiveButton(R.string.generator_button, (dialog, which) -> {
+          String countStr = editText.getText() != null
+              ? editText.getText().toString() : "10";
+          int count;
+          try {
+            count = Integer.parseInt(countStr);
+            if (count <= 0) count = 10;
+            if (count > 100) count = 100;
+          } catch (NumberFormatException e) {
+            count = 10;
+          }
+          List<String> codes = ActivationUtil.generateCodes(count);
+          StringBuilder sb = new StringBuilder();
+          for (String code : codes) {
+            sb.append(code).append("\n");
+          }
+          String result = sb.toString().trim();
+          showCodesResultDialog(result);
+        })
+        .setNegativeButton(android.R.string.cancel, null)
+        .show();
+  }
+
+  private void showCodesResultDialog(String codes) {
+    new MaterialAlertDialogBuilder(activity)
+        .setTitle(R.string.generator_title)
+        .setMessage(codes)
+        .setPositiveButton(R.string.generator_copied, (dialog, which) -> {
+          ClipboardManager clipboard = (ClipboardManager)
+              activity.getSystemService(Context.CLIPBOARD_SERVICE);
+          ClipData clip = ClipData.newPlainText("activation_codes", codes);
+          clipboard.setPrimaryClip(clip);
+          Toast.makeText(activity, R.string.generator_copied, Toast.LENGTH_SHORT).show();
+        })
+        .setNegativeButton(android.R.string.cancel, null)
+        .show();
   }
 }

@@ -151,6 +151,13 @@ public class MainActivity extends AppCompatActivity implements ServiceConnection
     assert navHost != null;
     navController = navHost.getNavController();
 
+    // Skip activation screen if already activated
+    if (xyz.zedler.patrick.tack.util.ActivationUtil.isActivated(this)
+        && navController.getCurrentDestination() != null
+        && navController.getCurrentDestination().getId() == R.id.activationFragment) {
+      navController.navigate(R.id.action_activation_to_main);
+    }
+
     Intent intent = getIntent();
     if (intent != null && intent.getAction() != null) {
       String action = intent.getAction();
@@ -374,7 +381,11 @@ public class MainActivity extends AppCompatActivity implements ServiceConnection
   @Nullable
   public BaseFragment getCurrentFragment() {
     if (navHost.getHost() != null) {
-      return (BaseFragment) navHost.getChildFragmentManager().getFragments().get(0);
+      androidx.fragment.app.Fragment fragment =
+          navHost.getChildFragmentManager().getFragments().get(0);
+      if (fragment instanceof BaseFragment) {
+        return (BaseFragment) fragment;
+      }
     }
     return null;
   }

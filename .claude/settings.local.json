@@ -7,7 +7,8 @@
       "Bash(export JAVA_HOME=\"/c/Program Files/Eclipse Adoptium/jdk-21.0.10.7-hotspot\")",
       "Bash('/c/Program Files/Eclipse Adoptium/jdk-21.0.10.7-hotspot/bin/java' -version)",
       "Bash(JAVA_HOME=\"/c/Program Files/Eclipse Adoptium/jdk-21.0.10.7-hotspot\" ./gradlew :app:assembleDebug)",
-      "Bash(powershell:*)"
+      "Bash(powershell:*)",
+      "Bash(adb logcat:*)"
     ]
   }
 }
