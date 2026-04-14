@@ -22,7 +22,7 @@
   <!-- APP -->
 
   <string name="app_name" translatable="false">节拍器</string>
-  <string name="app_developer" translatable="false">szx</string>
+  <string name="app_developer" translatable="false">S.Jason</string>
   <string name="app_mail" translatable="false">bilter1001@163.com</string>
   <string name="app_website" translatable="false">bilter1001@163.com</string>
   <string name="app_vending_dev" translatable="false">bilter1001@163.com</string>
