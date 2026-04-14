@@ -147,7 +147,7 @@
         <LinearLayout
           android:id="@+id/linear_about_developer"
           style="@style/Widget.Tack.LinearLayout.ListItem.TwoLine.More.Segmented"
-          android:background="@drawable/ripple_list_item_bg_segmented_middle">
+          android:background="@drawable/ripple_list_item_bg_segmented_last">
 
           <ImageView
             style="@style/Widget.Tack.ImageView.ListItem.Icon"
@@ -171,7 +171,8 @@
         <LinearLayout
           android:id="@+id/linear_about_vending"
           style="@style/Widget.Tack.LinearLayout.ListItem.TwoLine.More.Segmented"
-          android:background="@drawable/ripple_list_item_bg_segmented_last">
+          android:background="@drawable/ripple_list_item_bg_segmented_last"
+          android:visibility="gone">
 
           <ImageView
             style="@style/Widget.Tack.ImageView.ListItem.Icon"
@@ -196,7 +197,8 @@
           android:id="@+id/linear_about_key"
           style="@style/Widget.Tack.LinearLayout.ListItem.TwoLine.More.Segmented"
           android:background="@drawable/ripple_list_item_bg_segmented_single"
-          android:layout_marginTop="16dp">
+          android:layout_marginTop="16dp"
+          android:visibility="gone">
 
           <ImageView
             style="@style/Widget.Tack.ImageView.ListItem.Icon"
@@ -223,7 +225,8 @@
           android:id="@+id/linear_about_github"
           style="@style/Widget.Tack.LinearLayout.ListItem.TwoLine.More.Segmented"
           android:background="@drawable/ripple_list_item_bg_segmented_first"
-          android:layout_marginTop="16dp">
+          android:layout_marginTop="16dp"
+          android:visibility="gone">
 
           <ImageView
             style="@style/Widget.Tack.ImageView.ListItem.Icon"
@@ -247,7 +250,8 @@
         <LinearLayout
           android:id="@+id/linear_about_translation"
           style="@style/Widget.Tack.LinearLayout.ListItem.TwoLine.More.Segmented"
-          android:background="@drawable/ripple_list_item_bg_segmented_middle">
+          android:background="@drawable/ripple_list_item_bg_segmented_middle"
+          android:visibility="gone">
 
           <ImageView
             style="@style/Widget.Tack.ImageView.ListItem.Icon"
@@ -271,7 +275,8 @@
         <LinearLayout
           android:id="@+id/linear_about_privacy"
           style="@style/Widget.Tack.LinearLayout.ListItem.TwoLine.More.Segmented"
-          android:background="@drawable/ripple_list_item_bg_segmented_last">
+          android:background="@drawable/ripple_list_item_bg_segmented_last"
+          android:visibility="gone">
 
           <ImageView
             style="@style/Widget.Tack.ImageView.ListItem.Icon"
@@ -294,12 +299,14 @@
 
         <TextView
           style="@style/Widget.Tack.TextView.Category.Segmented"
-          android:text="@string/title_licenses" />
+          android:text="@string/title_licenses"
+          android:visibility="gone" />
 
         <LinearLayout
           android:id="@+id/linear_about_license_google_sans_flex"
           style="@style/Widget.Tack.LinearLayout.ListItem.TwoLine.More.Segmented"
-          android:background="@drawable/ripple_list_item_bg_segmented_first">
+          android:background="@drawable/ripple_list_item_bg_segmented_first"
+          android:visibility="gone">
 
           <ImageView
             android:id="@+id/image_about_license_google_sans_flex"
@@ -324,7 +331,8 @@
         <LinearLayout
           android:id="@+id/linear_about_license_material_components"
           style="@style/Widget.Tack.LinearLayout.ListItem.TwoLine.More.Segmented"
-          android:background="@drawable/ripple_list_item_bg_segmented_middle">
+          android:background="@drawable/ripple_list_item_bg_segmented_middle"
+          android:visibility="gone">
 
           <ImageView
             android:id="@+id/image_about_license_material_components"
@@ -349,7 +357,8 @@
         <LinearLayout
           android:id="@+id/linear_about_license_material_icons"
           style="@style/Widget.Tack.LinearLayout.ListItem.TwoLine.More.Segmented"
-          android:background="@drawable/ripple_list_item_bg_segmented_last">
+          android:background="@drawable/ripple_list_item_bg_segmented_last"
+          android:visibility="gone">
 
           <ImageView
             android:id="@+id/image_about_license_material_icons"

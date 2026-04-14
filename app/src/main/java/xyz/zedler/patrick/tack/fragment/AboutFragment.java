@@ -204,31 +204,6 @@ public class AboutFragment extends BaseFragment implements OnClickListener {
   }
 
   private void updateUnlockItem() {
-    boolean isPlayStoreInstalled = UnlockUtil.isPlayStoreInstalled(activity);
-    binding.linearAboutKey.setVisibility(isPlayStoreInstalled ? View.VISIBLE : View.GONE);
-    if (!isPlayStoreInstalled) {
-      return;
-    }
-    if (activity.isUnlocked()) {
-      binding.linearAboutKey.setOnLongClickListener(null);
-    } else {
-      binding.linearAboutKey.setOnLongClickListener(v -> {
-        longClickCount++;
-        if (longClickCount >= 10) {
-          getSharedPrefs().edit().putBoolean(PREF.CHECK_UNLOCK_KEY, false).apply();
-          updateUnlockItem();
-          binding.linearAboutKey.setOnLongClickListener(null);
-        }
-        return true;
-      });
-    }
-    int resId = R.string.about_key_description_not_installed;
-    boolean checkUnlockKey = getSharedPrefs().getBoolean(PREF.CHECK_UNLOCK_KEY, true);
-    if (UnlockUtil.isKeyInstalled(activity)) {
-      resId = R.string.about_key_description_installed;
-    } else if (!checkUnlockKey) {
-      resId = R.string.about_key_description_ignored;
-    }
-    binding.textAboutKeyDescription.setText(resId);
+    binding.linearAboutKey.setVisibility(View.GONE);
   }
 }

@@ -484,13 +484,7 @@ public class MainActivity extends AppCompatActivity implements ServiceConnection
   }
 
   public boolean isUnlocked() {
-    boolean checkUnlockKey = sharedPrefs.getBoolean(PREF.CHECK_UNLOCK_KEY, true);
-    if (checkUnlockKey) {
-      // also checks if Play Store is installed
-      return UnlockUtil.isUnlocked(this);
-    } else {
-      return true;
-    }
+    return true;
   }
 
   public HapticUtil getHapticUtil() {
