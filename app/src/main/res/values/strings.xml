@@ -21,16 +21,16 @@
 
   <!-- APP -->
 
-  <string name="app_name" translatable="false">Tack</string>
-  <string name="app_developer" translatable="false">Patrick Zedler</string>
-  <string name="app_mail" translatable="false">dev@patrickzedler.com</string>
-  <string name="app_website" translatable="false">https://patrickzedler.com</string>
-  <string name="app_vending_dev" translatable="false">https://play.google.com/store/apps/dev?id=5870283381366287608</string>
-  <string name="app_vending_app" translatable="false">https://play.google.com/store/apps/details?id=xyz.zedler.patrick.tack</string>
-  <string name="app_vending_key" translatable="false">https://play.google.com/store/apps/details?id=xyz.zedler.patrick.tack.unlock</string>
-  <string name="app_github" translatable="false">https://github.com/patzly/tack-android/</string>
+  <string name="app_name" translatable="false">节拍器</string>
+  <string name="app_developer" translatable="false">szx</string>
+  <string name="app_mail" translatable="false">bilter1001@163.com</string>
+  <string name="app_website" translatable="false">bilter1001@163.com</string>
+  <string name="app_vending_dev" translatable="false">bilter1001@163.com</string>
+  <string name="app_vending_app" translatable="false">bilter1001@163.com</string>
+  <string name="app_vending_key" translatable="false">bilter1001@163.com</string>
+  <string name="app_github" translatable="false">bilter1001@163.com</string>
   <string name="app_translate" translatable="false">https://app.transifex.com/patzly/tack-android/</string>
-  <string name="app_privacy" translatable="false">https://patrickzedler.com/tack/privacy-policy-tack/</string>
+  <string name="app_privacy" translatable="false">bilter1001@163.com/</string>
 
   <!-- TITLES -->
 

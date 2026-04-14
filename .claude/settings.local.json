@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(java:*)",
+      "Bash(winget install:*)",
+      "Bash(/c/Program Files/Eclipse Adoptium/jdk-21.0.10.7-hotspot/bin/java:*)",
+      "Bash(export JAVA_HOME=\"/c/Program Files/Eclipse Adoptium/jdk-21.0.10.7-hotspot\")",
+      "Bash('/c/Program Files/Eclipse Adoptium/jdk-21.0.10.7-hotspot/bin/java' -version)",
+      "Bash(JAVA_HOME=\"/c/Program Files/Eclipse Adoptium/jdk-21.0.10.7-hotspot\" ./gradlew :app:assembleDebug)",
+      "Bash(powershell:*)"
+    ]
+  }
+}
